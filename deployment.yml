@@ -1,1 +1,32 @@
-apiVersion: apps/v1kind: Deploymentmetadata:  name: vault-secrets-dp  labels:    app: vault-secrets-app    type: vault-secretsspec:  template:    metadata:      name: vault-secrets-pod      labels:        app: vault-secrets-pod        type: vault-secrets    spec:      containers:       - name: vault-secrets-container         image: 192.168.198.1:9002/vault-secrets:1.0                env:          - name: KAFKA_BOOTSTRAP           value: http://192.168.137.1:29092         - name: MONGO_URI           value: mongodb://root:example@192.168.137.1:27017/admin         - name: TZ           value: America/Sao_Paulo         ports:           - containerPort: 8080  selector:    matchLabels:      type: vault-secrets  replicas: 1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault-secrets-dp
+  labels:
+    app: vault-secrets-app
+    type: vault-secrets
+spec:
+  template:
+    metadata:
+      name: vault-secrets-pod
+      labels:
+        app: vault-secrets-pod
+        type: vault-secrets
+    spec:
+      containers:
+       - name: vault-secrets-container
+         image: 192.168.198.1:9002/vault-secrets:%s
+        
+         env: 
+         - name: KAFKA_BOOTSTRAP
+           value: http://192.168.137.1:29092
+         - name: MONGO_URI
+           value: mongodb://root:example@192.168.137.1:27017/admin
+         - name: TZ
+           value: America/Sao_Paulo
+         ports: 
+          - containerPort: 8080
+  selector:
+    matchLabels:
+      type: vault-secrets
+  replicas: 1
