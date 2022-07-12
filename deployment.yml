@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: vault-secrets-container
-         image: 192.168.198.1:9002/vault-secrets:%s
+         image: localhost:9002/vault-secrets:%s
         
          env: 
          - name: KAFKA_BOOTSTRAP
