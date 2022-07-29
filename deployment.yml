@@ -24,6 +24,8 @@ spec:
            value: mongodb://root:example@192.168.137.1:27017/admin
          - name: TZ
            value: America/Sao_Paulo
+         - name: X_VAULT_TOKEN
+           value: s.3fh0aEh25UvbWa1GlzgVrQ2w
          ports: 
           - containerPort: 8080
   selector:
