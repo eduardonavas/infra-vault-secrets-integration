@@ -20,6 +20,10 @@ spec:
          env: 
          - name: KAFKA_BOOTSTRAP
            value: http://192.168.137.1:29092
+         - name: USER
+           value: Microservicos
+         - name: PASSWORD
+           value: rg7a*g)i-|{*_NzC
          - name: MONGO_URI
            value: mongodb://root:example@192.168.137.1:27017/admin
          - name: TZ
