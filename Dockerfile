@@ -1,4 +1,4 @@
-FROM localhost:9002/openjdk:11
+FROM openjdk:11
 
 RUN mkdir app
 
