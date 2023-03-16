@@ -6,6 +6,7 @@ services:
     restart: always
     environment:
       TZ: America/Sao_Paulo
+      VAULT_USER_URL: http://192.168.15.104:30085/common/vaultUserManagement/v1
       MONGO_URI: mongodb://root:example@192.168.15.104:27017/admin
     ports:
       - 30084:8080
